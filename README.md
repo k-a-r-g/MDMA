@@ -1,2 +1,2 @@
 # Kontroller
-A Teensy based "USB stick", that modulates MIDI messages to facilitate playing the Korg Kaossilator Pro (+) with standard equipment, in particular keyboards and sequencers. The implementation is solder free and is designed for stock Teensy development boards.
+A Teensy based "USB stick", that modulates MIDI messages to facilitate playing the Korg Kaossilator Pro (+) with standard equipment, in particular keyboards and sequencers. The implementation for USB is solder free and is designed for stock Teensy development boards. Usage of DIN connectors requires some basic soldering, but is still deisgned for the electronic novice. Detailed instructions are published on http://karg-music.blogspot.de.
