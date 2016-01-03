@@ -17,8 +17,9 @@
 
 /* ---( Config Start - change to your likings )-------------------------------------------------------------------------------- */
 
-// uncomment to use MIDI DINs instead of MIDI over USB
-//#define DIN
+// un-/comment to enable/disable MIDI DINs and USB
+//define DIN
+#define USB
 
 // change the numbers according to the settings in your Kaoss device
 #define KAOSS_MIDI_CHANNEL 2            // MIDI channel for the Kaoss device
@@ -67,7 +68,8 @@ void OnNoteOn(byte channel, byte note, byte velocity) {
         MIDI.sendControlChange(KAOSS_CC_X, constrain(xPad + pitchChange, 0, 127), KAOSS_MIDI_CHANNEL);
         MIDI.sendControlChange(KAOSS_CC_Y, constrain(yPad + afterTouch, 0, 127), KAOSS_MIDI_CHANNEL);
         MIDI.sendControlChange(KAOSS_CC_PAD, 127, 2);
-      #else
+      #endif
+      #ifdef USB
         usbMIDI.sendControlChange(KAOSS_CC_X, constrain(xPad + pitchChange, 0, 127), KAOSS_MIDI_CHANNEL);
         usbMIDI.sendControlChange(KAOSS_CC_Y, constrain(yPad + afterTouch, 0, 127), KAOSS_MIDI_CHANNEL);
         usbMIDI.sendControlChange(KAOSS_CC_PAD, 127, 2);
@@ -88,7 +90,8 @@ void OnNoteOff(byte channel, byte note, byte velocity) {
       #endif
       #ifdef DIN
         MIDI.sendControlChange(KAOSS_CC_PAD, 0, 2);
-      #else
+      #endif
+      #ifdef USB
         usbMIDI.sendControlChange(KAOSS_CC_PAD, 0, 2);
       #endif
     }
@@ -102,7 +105,8 @@ void OnPitchChange(byte channel, int pitch) {
        #ifdef DIN
         pitchChange = round(pitch/64.0);
         MIDI.sendControlChange(KAOSS_CC_X, constrain(xPad + pitchChange, 0, 127), KAOSS_MIDI_CHANNEL);       
-      #else
+      #endif
+      #ifdef USB
         pitchChange = round(pitch/64.0)-128;
         usbMIDI.sendControlChange(KAOSS_CC_X, constrain(xPad + pitchChange, 0, 127), KAOSS_MIDI_CHANNEL);        
       #endif
@@ -118,7 +122,8 @@ void OnControlChange(byte channel, byte control, byte value) {
         yPad = value;
         #ifdef DIN
           MIDI.sendControlChange(KAOSS_CC_Y, yPad, KAOSS_MIDI_CHANNEL);
-        #else
+        #endif
+        #ifdef USB
           usbMIDI.sendControlChange(KAOSS_CC_Y, yPad, KAOSS_MIDI_CHANNEL);        
         #endif
       }
@@ -133,7 +138,8 @@ void OnAfterTouch(byte channel, byte value) {
       afterTouch = value;
       #ifdef DIN
         MIDI.sendControlChange(KAOSS_CC_Y, constrain(yPad + afterTouch, 0, 127), KAOSS_MIDI_CHANNEL);
-      #else
+      #endif
+      #ifdef USB
         usbMIDI.sendControlChange(KAOSS_CC_Y, constrain(yPad + afterTouch, 0, 127), KAOSS_MIDI_CHANNEL);
       #endif
     #endif
@@ -160,8 +166,9 @@ void setup() {
     #ifdef Y_AFTERTOUCH
       MIDI.setHandleAfterTouchChannel(OnAfterTouch);
     #endif
+  #endif
   
-  #else
+  #ifdef USB
     usbMIDI.setHandleNoteOn(OnNoteOn);
     usbMIDI.setHandleNoteOff(OnNoteOff);
     #ifdef X_PITCH_CHANGE
@@ -179,7 +186,8 @@ void setup() {
 void loop() {
   #ifdef DIN
     MIDI.read();
-  #else
+  #endif
+  #ifdef USB
     usbMIDI.read();
   #endif
 }
