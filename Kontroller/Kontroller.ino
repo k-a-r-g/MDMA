@@ -18,7 +18,7 @@
 /* ---( Config Start - change to your likings )-------------------------------------------------------------------------------- */
 
 // un-/comment to enable/disable MIDI DINs and USB
-//define DIN
+#define DIN
 #define USB
 
 // change the numbers according to the settings in your Kaoss device
