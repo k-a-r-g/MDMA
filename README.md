@@ -1,2 +1,27 @@
-# Kontroller
-A Teensy based "USB stick", that modulates MIDI messages to facilitate playing the Korg Kaossilator Pro (+) with standard equipment, in particular keyboards and sequencers. The implementation for USB is solder free and is designed for stock Teensy development boards. Usage of DIN connectors requires some basic soldering, but is very suitable for the electronic novice. Detailed instructions are published on http://karg-music.blogspot.de.
+# MDMA - Multi Duty MIDI Aid
+
+The MDMA hardware and software are designed in a modular fashion, so you can choose which functionalities are important to you and if, as well as how, you want to implement them:
+
+Based on the Teensy 3.1 development platform, the MDMA sports MIDI over USB, an eeprom to load/save data, and a status LED directly out of the box without any soldering required. However, multiple extensions (MIDI Din, CV/Gate, buttons, potentiometers, etc) are already under development and will be published here: [Electronic Sound Creation - MDMA][mdma]
+
+The real Multi Duty part, comes from the different firmwares which are hand-tailored for the various hardware extensions. The employ your existing hardware configuration in a, simple to configure, way, and are easy to upload through the official Arduino IDE. Maybe the different firmwares will be combined, and a small GUI will allow configuration and enabling/disabling of functions, any time in the future, but it is not high on my priority list, yet. Immediate future plans include a firmware to  a generate MIDI clock signals, determine accuracy and precision of MIDI clocks, a drum roller, a general purpose midi controller, and some bonus firmwares.
+
+
+### Version
+1.0
+
+### Hardware features
+- [Base][mdma] - MIDI over USB
+- [Base][mdma] - load/save (eeprom)
+- [Base][mdma] - Status LED
+- [DIN extension][midification] - MIDI DIN in
+- [DIN extension][midification] - MIDI DIN out
+
+### Firmwares
+- [Kontroller][kontroller] - Play the Korg Kaossilator Pro(+) and Kaoss Pad 3(+) with any midi equipment
+
+**Use, test, modify to your likings. If you have further ideas for extensions or firmware, let me know :)**
+
+   [mdma]: <http://karg-music.blogspot.de/p/multi-duty-midi-aid.html>
+   [midification]: <http://karg-music.blogspot.de/2016/01/midification.html>
+   [kontroller]: <http://karg-music.blogspot.de/2015/11/play-kaossilator-pro-with-standard-midi.html>

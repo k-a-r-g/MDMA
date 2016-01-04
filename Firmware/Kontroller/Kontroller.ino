@@ -54,6 +54,9 @@ int   pitchChange = 0;
 int   afterTouch  = 0;
 
 void OnNoteOn(byte channel, byte note, byte velocity) {
+  Serial.print(channel);
+  Serial.print(": ");
+  Serial.println(note);
   if (channel == KAOSS_MIDI_CHANNEL) {
     xPad = note;
     #ifdef Y_VELOCITY
