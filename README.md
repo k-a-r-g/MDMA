@@ -20,7 +20,7 @@ The real Multi Duty part, comes from the different firmwares which are hand-tail
 ### Firmwares
 - [Kontroller][kontroller] - Play the Korg Kaossilator Pro(+) and Kaoss Pad 3(+) with any midi equipment
 
-**Use, test, modify to your likings. If you have further ideas for extensions or firmware, let me know :)**
+**Use, test, modify to your likings. If you have further ideas for extensions or firmwares, let me know :)**
 
    [mdma]: <http://karg-music.blogspot.de/p/multi-duty-midi-aid.html>
    [midification]: <http://karg-music.blogspot.de/2016/01/midification.html>
