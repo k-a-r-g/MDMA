@@ -46,7 +46,9 @@
 #define CONTINUE           0xFB
 #define STOP               0xFC
 
-MIDI_CREATE_INSTANCE(HardwareSerial, Serial1, MIDI);
+#ifdef DIN
+  MIDI_CREATE_INSTANCE(HardwareSerial, Serial1, MIDI);
+#endif
 
 byte  xPad  = 0;
 byte  yPad  = 0;
@@ -54,9 +56,6 @@ int   pitchChange = 0;
 int   afterTouch  = 0;
 
 void OnNoteOn(byte channel, byte note, byte velocity) {
-  Serial.print(channel);
-  Serial.print(": ");
-  Serial.println(note);
   if (channel == KAOSS_MIDI_CHANNEL) {
     xPad = note;
     #ifdef Y_VELOCITY
