@@ -343,13 +343,11 @@ UsedLibrary="/Users/soup/Public/Dropbox/Tinkering/Applications/Eagle/Eagle.v6.5.
 UsedLibrary="/Users/soup/Public/Dropbox/Tinkering/Applications/Eagle/Eagle.v6.5.0/lbr/zilog.lbr"
 UsedLibrary="/Users/soup/Public/Dropbox/Tinkering/Applications/Eagle/Libraries/Teensy 1.1 lbr/Teensy_DIY_v1.0.lbr"
 UsedLibrary="/Users/soup/Public/Dropbox/Tinkering/Applications/Eagle/Libraries/Teensy 1.1 lbr/Teensy_3_and_LC_Series_Boards_v1.1.lbr"
-UsedLibrary="/Users/soup/Downloads/Eagle-Libraries-master/Other/alps.lbr"
-UsedLibrary="/Users/soup/Downloads/Eagle-Libraries-master 2/Knobs-Buttons-Switches/alps.lbr"
-UsedLibrary="/Users/soup/Downloads/SparkFun-Eagle-Libraries-master/SparkFun-Electromechanical.lbr"
+UsedLibrary="/Users/soup/Public/Dropbox/Tinkering/Applications/Eagle/Libraries/transistors.lbr"
 
 [Win_1]
 Type="Control Panel"
-Loc="22 45 1251 444"
+Loc="14 66 1243 465"
 State=2
 Number=0
 
