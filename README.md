@@ -19,7 +19,7 @@ The real Multi Duty part, comes from the different firmwares which are hand-tail
 
 ### Firmwares
 - [Klockwerk][klockwerk] - MIDI clock generator
-- [Kommunikator] - A MIDI bridge between DIN and USB with note/clock/channel filtering
+- [Kommunikator][kommunikator] - A MIDI bridge between DIN and USB with note/clock/channel filtering
 - [Kontroller][kontroller] - Play the Korg Kaossilator Pro(+) and Kaoss Pad 3(+) with any midi equipment
 
 **Use, test, modify to your likings. If you have further ideas for extensions or firmwares, let me know :)**
@@ -27,4 +27,5 @@ The real Multi Duty part, comes from the different firmwares which are hand-tail
    [mdma]: <http://karg-music.blogspot.de/p/multi-duty-midi-aid.html>
    [midification]: <http://karg-music.blogspot.de/2016/01/midification.html>
    [klockwerk]: <http://karg-music.blogspot.de/2016/01/klockwerk-midi-clock-generator.html>
+   [kommunikator]: <http://karg-music.blogspot.de/p/multi-duty-midi-aid.html>
    [kontroller]: <http://karg-music.blogspot.de/2015/11/play-kaossilator-pro-with-standard-midi.html>
