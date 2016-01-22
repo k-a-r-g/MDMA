@@ -18,7 +18,7 @@
 /* ---( Config Start - change to your likings )-------------------------------------------------------------------------------- */
 
 // un-/comment to enable/disable MIDI DINs and USB
-#define DIN
+//#define DIN
 #define USB
 
 // change the numbers according to the settings in your Kaoss device
@@ -38,15 +38,8 @@
 
 
 /* ---( Config End - from here on it is better if you know what you are doing )------------------------------------------------ */
-
-#include <MIDI.h>
-
-#define CLOCK              0xF8            
-#define START              0xFA
-#define CONTINUE           0xFB
-#define STOP               0xFC
-
 #ifdef DIN
+  #include <MIDI.h>
   MIDI_CREATE_INSTANCE(HardwareSerial, Serial1, MIDI);
 #endif
 

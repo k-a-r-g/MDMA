@@ -8,7 +8,7 @@ The real Multi Duty part, comes from the different firmwares which are hand-tail
 
 
 ### Version
-1.2
+1.2.1
 
 ### Hardware features
 - [Base][mdma] - MIDI over USB
