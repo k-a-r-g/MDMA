@@ -21,6 +21,8 @@
 //#define DIN
 #define USB
 
+#define INPUT_MIDI_CHANNEL 1            // MIDI channel of the input device (keyboard etc.) sending notes
+
 // change the numbers according to the settings in your Kaoss device
 #define KAOSS_MIDI_CHANNEL 2            // MIDI channel for the Kaoss device
 #define KAOSS_CC_PAD       92           // pad on/off control change # (check the manual for more information)
@@ -49,7 +51,7 @@ int   pitchChange = 0;
 int   afterTouch  = 0;
 
 void OnNoteOn(byte channel, byte note, byte velocity) {
-  if (channel == KAOSS_MIDI_CHANNEL) {
+  if (channel == INPUT_MIDI_CHANNEL) {
     xPad = note;
     #ifdef Y_VELOCITY
       yPad = velocity;
@@ -78,7 +80,7 @@ void OnNoteOn(byte channel, byte note, byte velocity) {
 
 
 void OnNoteOff(byte channel, byte note, byte velocity) {
-  if (channel == KAOSS_MIDI_CHANNEL) {
+  if (channel == INPUT_MIDI_CHANNEL) {
     if (note == xPad) {
       #ifdef NOTE_INDICATION
         digitalWrite(13, LOW);  
@@ -95,7 +97,7 @@ void OnNoteOff(byte channel, byte note, byte velocity) {
 
   
 void OnPitchChange(byte channel, int pitch) {
-  if (channel == KAOSS_MIDI_CHANNEL) {
+  if (channel == INPUT_MIDI_CHANNEL) {
      #ifdef X_PITCH_CHANGE
        #ifdef DIN
         pitchChange = round(pitch/64.0);
@@ -111,7 +113,7 @@ void OnPitchChange(byte channel, int pitch) {
 
 
 void OnControlChange(byte channel, byte control, byte value) {
-  if (channel == KAOSS_MIDI_CHANNEL) {
+  if (channel == INPUT_MIDI_CHANNEL) {
     #ifdef Y_CONTROL_CHANGE
       if (control == Y_CONTROL_CHANGE) {
         yPad = value;
@@ -128,7 +130,7 @@ void OnControlChange(byte channel, byte control, byte value) {
 
   
 void OnAfterTouch(byte channel, byte value) {
-  if (channel == KAOSS_MIDI_CHANNEL) {
+  if (channel == INPUT_MIDI_CHANNEL) {
     #ifdef Y_AFTERTOUCH
       afterTouch = value;
       #ifdef DIN
