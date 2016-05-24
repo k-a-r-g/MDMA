@@ -62,12 +62,12 @@ void OnNoteOn(byte channel, byte note, byte velocity) {
       #ifdef DIN
         MIDI.sendControlChange(KAOSS_CC_X, constrain(xPad + pitchChange, 0, 127), KAOSS_MIDI_CHANNEL);
         MIDI.sendControlChange(KAOSS_CC_Y, constrain(yPad + afterTouch, 0, 127), KAOSS_MIDI_CHANNEL);
-        MIDI.sendControlChange(KAOSS_CC_PAD, 127, 2);
+        MIDI.sendControlChange(KAOSS_CC_PAD, 127, KAOSS_MIDI_CHANNEL);
       #endif
       #ifdef USB
         usbMIDI.sendControlChange(KAOSS_CC_X, constrain(xPad + pitchChange, 0, 127), KAOSS_MIDI_CHANNEL);
         usbMIDI.sendControlChange(KAOSS_CC_Y, constrain(yPad + afterTouch, 0, 127), KAOSS_MIDI_CHANNEL);
-        usbMIDI.sendControlChange(KAOSS_CC_PAD, 127, 2);
+        usbMIDI.sendControlChange(KAOSS_CC_PAD, 127, KAOSS_MIDI_CHANNEL);
       #endif
       
     } else {
@@ -84,10 +84,10 @@ void OnNoteOff(byte channel, byte note, byte velocity) {
         digitalWrite(13, LOW);  
       #endif
       #ifdef DIN
-        MIDI.sendControlChange(KAOSS_CC_PAD, 0, 2);
+        MIDI.sendControlChange(KAOSS_CC_PAD, 0, KAOSS_MIDI_CHANNEL);
       #endif
       #ifdef USB
-        usbMIDI.sendControlChange(KAOSS_CC_PAD, 0, 2);
+        usbMIDI.sendControlChange(KAOSS_CC_PAD, 0, KAOSS_MIDI_CHANNEL);
       #endif
     }
   }
